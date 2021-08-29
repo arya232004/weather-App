@@ -1,24 +1,22 @@
-//importing required packages
-import express, { static } from "express";
-import { get } from "https";
-import { urlencoded } from "body-parser";
+const express=require("express");
+const https=require("https");
+const bodyparser=require("body-parser");
 const app=express();
-app.use(urlencoded({extended:true}));
+app.use(bodyparser.urlencoded({extended:true}));
 
-//used for importing css and images folder
-app.use(static('public'));
-app.use('/css',static(__dirname+'public/css')); 
+app.use(express.static('public'));
+app.use('/css',express.static(__dirname+'public/css')); 
 
-app.use(static('public'));
-app.use('/images',static(__dirname+'public/images'));
+app.use(express.static('public'));
+app.use('/images',express.static(__dirname+'public/images'));
 
-//displaying main file
+
 app.get("/",function(req,res)
 {
    res.sendFile(__dirname+"/index.html");
  
 })
-// retriving information from API
+
 app.post("/",function(req,res)
 {   
     var a=String( req.body.cityname);
@@ -26,7 +24,7 @@ app.post("/",function(req,res)
 
     var city=a;
     const url="https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=c830c5509fd4a46fec49a0e23f4674c4&units=metric";
-    get(url,function(response)
+    https.get(url,function(response)
     {  
        console.log(response.statusCode);
        response.on("data",function(data)
@@ -70,7 +68,7 @@ app.post("/",function(req,res)
 
 })
 
-// Executing code at port 3000
+
 app.listen(3000,function()
 {
     console.log("Heya!")
