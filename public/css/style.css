@@ -1,0 +1,31 @@
+.box{
+   
+
+    text-align: center;
+  
+
+    margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  border-style: dotted;
+  padding: 10px;
+  height: 250px;
+  position: relative; 
+  top:200px;
+}
+button{
+   
+    position: relative;
+   margin: auto;
+   top: 45px;
+}
+.textedit{
+    width: 35%;
+    text-align: center;
+}
+.form-group{
+    text-align: center !important;
+    position: relative;
+    left: 230px;
+    top:20px
+}
