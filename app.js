@@ -25,7 +25,7 @@ app.post("/",function(req,res)
     console.log(a);
 
     var city=a;
-    const url="https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=//Get your own Key///4&units=metric";
+    const url="https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=c830c5509fd4a46fec49a0e23f4674c4&units=metric";
     get(url,function(response)
     {  
        console.log(response.statusCode);
